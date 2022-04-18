@@ -1,11 +1,26 @@
-import React from 'react';
+import React from "react";
+import { createGlobalStyle } from "styled-components";
+import HomePage from "./components/HomePage/HomePage";
 
-function App() {
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: sans-serif;
+    color: #112D4E;
+  }
+`;
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-     
-    </div>
+    <>
+      <GlobalStyle />
+      <div className="App">
+        <HomePage />
+      </div>
+    </>
   );
-}
+};
 
 export default App;
