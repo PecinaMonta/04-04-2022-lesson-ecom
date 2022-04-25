@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors, margins, shadows } from "../../theme/theme";
+import { colors, margins } from "../../theme/theme";
 
 const Item = styled.div`
   margin: ${margins.xs};
