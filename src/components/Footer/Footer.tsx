@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { margins } from "../../theme/theme";
 
 const StyledFooter = styled.footer`
   width: 100%;
@@ -11,7 +12,7 @@ const StyledFooter = styled.footer`
 const Icons = styled.div`
   width: 8rem;
   height: 2rem;
-  margin: 1rem auto;
+  margin: ${margins.sm} auto;
   display: flex;
   justify-content: space-between;
 `;
@@ -40,7 +41,7 @@ const Footer: React.FC = () => {
           <img src={require("../../assets/inst-logo.png")} alt="" />
         </Icon>
       </Icons>
-      <div>© 2022 Raimonds Kazušs</div>
+      <div>© 2022 Monta Peciņa</div>
     </StyledFooter>
   );
 };
