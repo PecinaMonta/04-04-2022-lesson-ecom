@@ -14,7 +14,7 @@ const SearchInput = styled.input`
   height: 2rem;
   border: 1px solid ${colors.lightBlue};
 
-  &:focus {
+  &:focus-visible {
     border: 1px solid ${colors.darkBlue};
     border-radius: 0;
   }
