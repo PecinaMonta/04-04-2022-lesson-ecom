@@ -68,13 +68,13 @@ const NavButton = styled.button<{ left?: boolean }>`
   padding: ${paddings.md};
   background: ${colors.bg} url(${arrowR}) center/30% no-repeat;
   border-radius: 50%;
-  right: 1rem;
+  right: 2rem;
   ${(props) =>
     props &&
     props.left &&
     `
     background-image: url(${arrowL});
-    left: 1rem;
+    left: 2rem;
     right: unset; 
   `}
 `;
@@ -117,6 +117,7 @@ const Slider: React.FC = () => {
       <Banner
         key={sliderData[currentSlide].id}
         bg={sliderData[currentSlide].img}
+
       >
         <h3>{sliderData[currentSlide].title}</h3>
       </Banner>
