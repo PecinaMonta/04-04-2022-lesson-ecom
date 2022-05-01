@@ -1,7 +1,11 @@
 import styled from "styled-components";
 import SearchField from "../SearchField/SearchField";
 import bgImage from "../../assets/logo-128.png";
-import { paddings, shadows } from "../../theme/theme";
+import { paddings, shadows, margins } from "../../theme/theme";
+import menuIcon from "../../assets/icon-menu.svg";
+import emptyBagIcon from "../../assets/icon-bag-empty.svg";
+import emptyHeartIcon from "../../assets/icon-heart-empty.svg";
+import personIcon from "../../assets/icon-person.svg";
 
 const StyledNav = styled.header`
   box-shadow: ${shadows.default};
@@ -15,6 +19,12 @@ const StyledNav = styled.header`
   align-items: center;
   justify-content: space-between;
 `;
+const SideBarToggleBtn = styled.button`
+  width: 2rem;
+  height: 2rem;
+  margin-left: ${margins.sm};
+  background: url(${menuIcon}) center/contain no-repeat;
+`;
 
 const HomeBtn = styled.a`
   width: 3rem;
@@ -24,51 +34,45 @@ const HomeBtn = styled.a`
   background: url(${bgImage}) center/contain no-repeat;
   text-align: right;
 `;
-
 const BtnWrapper = styled.div`
   flex: 1;
-  min-width: 6rem;
+  max-width: 10rem;
   text-align: right;
-
+  display: flex;
+  justify-content: space-around;
   @media (min-width: 430px) {
-    min-width: 11rem;
-    display: inline-block;
     text-align: unset;
   }
 `;
 
-const NavButton = styled.button`
-  width: 3rem;
-  height: 3rem;
+const NavButton = styled.button<{ icon: string }>`
+  width: 2rem;
+  height: 2rem;
   display: inline-block;
-  background: none;
-  border: none;
+  background: url(${(props) => props && props.icon}) center/contain no-repeat;
 `;
 
 const UserBtn = styled(NavButton)`
   display: none;
-
   @media (min-width: 430px) {
     display: inline-block;
   }
 `;
 
-const Nav: React.FC<{toggleSideBar: () => void}> = ({toggleSideBar}) => {
-
-  const clickHandler = () => toggleSideBar()
+const Nav: React.FC<{ toggleSideBar: () => void }> = ({ toggleSideBar }) => {
+  const clickHandler = () => toggleSideBar();
 
   return (
     <StyledNav>
       <HomeBtn href="/" />
-      <button onClick={clickHandler}>nav</button>
+      <SideBarToggleBtn onClick={clickHandler} />
       <SearchField />
       <BtnWrapper>
-        <UserBtn>👤</UserBtn>
-        <NavButton>🤍</NavButton>
-        <NavButton>🛒</NavButton>
+        <UserBtn icon={personIcon} />
+        <NavButton icon={emptyHeartIcon} />
+        <NavButton icon={emptyBagIcon} />
       </BtnWrapper>
     </StyledNav>
   );
 };
-
 export default Nav;

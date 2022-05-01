@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { margins } from "../../theme/theme";
+import { fontSizes, margins } from "../../theme/theme";
 
 const StyledFooter = styled.footer`
   width: 100%;
@@ -7,6 +7,7 @@ const StyledFooter = styled.footer`
   position: absolute;
   bottom: 0;
   text-align: center;
+  font-size: ${fontSizes.sm}
 `;
 
 const Icons = styled.div`
@@ -16,17 +17,14 @@ const Icons = styled.div`
   display: flex;
   justify-content: space-between;
 `;
-
 const Icon = styled.a`
   width: 2rem;
   height: 2rem;
-
   img {
     width: 2rem;
     height: 2rem;
   }
 `;
-
 const Footer: React.FC = () => {
   return (
     <StyledFooter>
@@ -45,5 +43,4 @@ const Footer: React.FC = () => {
     </StyledFooter>
   );
 };
-
 export default Footer;
