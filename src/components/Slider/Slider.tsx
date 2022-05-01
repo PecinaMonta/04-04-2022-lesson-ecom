@@ -2,14 +2,12 @@ import styled from "styled-components";
 import { colors, fontSizes, paddings } from "../../theme/theme";
 import arrowL from "../../assets/icon-arrow-l.svg";
 import arrowR from "../../assets/icon-arrow-r.svg";
-
 //image import for app POC demonstration purposes
 import slide1 from "../../assets/slides/slide_1.jpg";
 import slide2 from "../../assets/slides/slide_2.jpg";
 import slide3 from "../../assets/slides/slide_3.jpg";
 import slide4 from "../../assets/slides/slide_4.jpg";
 import { useState } from "react";
-
 const sliderData = [
   {
     id: 1,
@@ -38,6 +36,7 @@ const sliderData = [
 ];
 
 const SliderWrapper = styled.div`
+  position: relative;
   padding: ${paddings.xs};
   margin: 3rem auto;
   width: 100%;
@@ -45,7 +44,6 @@ const SliderWrapper = styled.div`
   height: 12rem;
   box-sizing: border-box;
 `;
-
 const Banner = styled.div<{ bg: string }>`
   width: 100%;
   height: 12rem;
@@ -62,7 +60,7 @@ const Banner = styled.div<{ bg: string }>`
 
 const NavButton = styled.button<{ left?: boolean }>`
   position: absolute;
-  top: 20%;
+  top: 40%;
   width: 2rem;
   height: 2rem;
   padding: ${paddings.md};
@@ -78,58 +76,41 @@ const NavButton = styled.button<{ left?: boolean }>`
     right: unset; 
   `}
 `;
-
-//const DotWrapper = styled.div`
-//  height: 2rem;
-//  display: flex;
-//  width: 10rem;
-//  margin: ${margins.xs} auto;
-//  justify-content: space-between;
-//`;
-
-//const Dot = styled.div`
-//  width: 1rem;
-//  height: 1rem;
-//  border-radius: 50%;
-//  background: ${colors.bg};
-//`;
-
+// const DotWrapper = styled.div`
+//   height: 2rem;
+//   display: flex;
+//   width: 10rem;
+//   margin: ${margins.xs} auto;
+//   justify-content: space-between;
+// `;
+// const Dot = styled.div`
+//   width: 1rem;
+//   height: 1rem;
+//   border-radius: 50%;
+//   background: ${colors.bg};
+// `;
 const Slider: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-
   const prevHandler = () => {
     setCurrentSlide(
       currentSlide > 0 ? currentSlide - 1 : sliderData.length - 1
     );
   };
-
   const nextHandler = () => {
     setCurrentSlide(
       currentSlide === sliderData.length - 1 ? 0 : currentSlide + 1
     );
   };
-
-  //TODO: slider timer function
-  // setTimeout(() => nextHandler(), 5000);
-
   return (
     <SliderWrapper>
       <Banner
         key={sliderData[currentSlide].id}
         bg={sliderData[currentSlide].img}
-
       >
         <h3>{sliderData[currentSlide].title}</h3>
       </Banner>
       <NavButton left onClick={prevHandler} />
       <NavButton onClick={nextHandler} />
-      {/* <DotWrapper>
-        <Dot />
-        <Dot />
-        <Dot />
-        <Dot />
-        <Dot />
-      </DotWrapper> */}
     </SliderWrapper>
   );
 };
