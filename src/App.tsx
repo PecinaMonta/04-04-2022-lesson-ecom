@@ -3,6 +3,7 @@ import { createGlobalStyle } from "styled-components";
 import Home from "./pages/Home/Home";
 import { colors, fontSizes } from "./theme/theme";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ShoppingCart from "./pages/ShoppingCart";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -22,7 +23,7 @@ const App: React.FC = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/cart" element={<div>shopping cart</div>} />
+          <Route path="/cart" element={<ShoppingCart />} />
           <Route path="/user" element={<div>user page</div>} />
           <Route path="/wishlist" element={<div>wishlist</div>} />
         </Routes>
