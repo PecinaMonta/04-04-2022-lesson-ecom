@@ -38,6 +38,8 @@ const App: React.FC = () => {
           <Route path="/cart" element={<ShoppingCart />} />
           <Route path="/user" element={<div>user page</div>} />
           <Route path="/wishlist" element={<WishList />} />
+          <Route path="/login" element={<Auth login />} />
+          <Route path="/signup" element={<Auth />} />
         </Routes>
         <Footer />
       </BrowserRouter>
