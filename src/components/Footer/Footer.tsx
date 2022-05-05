@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { fontSizes, margins } from "../../theme/theme";
+import { fontSizes, margins, paddings } from "../../theme/theme";
 
 const StyledFooter = styled.footer`
   width: 100%;
-  height: 6rem;
+  height: 18rem;
   position: absolute;
   bottom: 0;
   text-align: center;
@@ -11,7 +11,27 @@ const StyledFooter = styled.footer`
 `;
 
 const FooterInfo = styled.div`
-  border: 1px solid black;
+  border-top: 1px solid black;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  section {
+    display: block;
+    width: 300px;
+  }
+  h1 {
+    font-size: 20px;
+    text-transform: uppercase;
+    padding-bottom: ${paddings.xs};
+    padding-top: ${paddings.xs};
+  }
+  ul {
+    text-align: left;
+    padding-left: ${paddings.lg};
+  }
+  li {
+    padding-bottom: ${paddings.xs};
+  }
 `;
 
 const Icons = styled.div`
@@ -33,14 +53,37 @@ const Icon = styled.a`
 const Footer: React.FC = () => {
   return (
     <StyledFooter>
-    <FooterInfo>
-    <section>
-      <h1>Customer Service</h1>
-    </section>
-    <section>About Company</section>
-    <section>Payment Methods</section>
-
-    </FooterInfo>
+      <FooterInfo>
+        <section>
+          <h1>Customer Service</h1>
+          <ul>
+            <li>FAQ</li>
+            <li>Shipping</li>
+            <li>Return</li>
+            <li>Vouchers</li>
+            <li>Newsletter</li>
+            <li>Contact</li>
+          </ul>
+        </section>
+        <section>
+          <h1>About Company</h1>
+          <ul>
+            <li>Jobs</li>
+            <li>Cookie settings</li>
+            <li>Privacy Policy</li>
+            <li>Terms and Conditions</li>
+            <li>Imprint</li>
+          </ul>
+        </section>
+        <section>
+          <h1>Payment Methods</h1>
+          <ul>
+            <li>VISA</li>
+            <li>MasterCard</li>
+            <li>PayPal</li>
+          </ul>
+        </section>
+      </FooterInfo>
       <Icons>
         <Icon href="/fb" target="_blank">
           <img src={require("../../assets/fb-logo.png")} alt="" />
