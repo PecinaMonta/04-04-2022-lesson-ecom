@@ -25,6 +25,7 @@ const Icon = styled.a`
     height: 2rem;
   }
 `;
+
 const Footer: React.FC = () => {
   return (
     <StyledFooter>
