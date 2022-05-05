@@ -5,7 +5,7 @@ import Home from "./pages/Home/Home";
 import { colors, fontSizes } from "./theme/theme";
 import ShoppingCart from "./pages/ShoppingCart/ShoppingCart";
 import Nav from "./components/Nav/Nav";
-import SideBar from "./components/SideBar/SideBar";
+import SideBar from "./components/Sidebar/SideBar";
 import Footer from "./components/Footer/Footer";
 import WishList from "./pages/WishList/WishList";
 import Auth from "./pages/Auth/Auth";
