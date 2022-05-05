@@ -7,10 +7,10 @@ import { margins, paddings } from "../../theme/theme";
 const WishListWrapper = styled.div`
   border: 1px solid black;
   padding: ${paddings.md};
+  text-align: center;
 `;
 
 const WishListInfo = styled.div`
-  text-align: center;
   margin-bottom: ${margins.md};
   img{
     padding-top:${paddings.lg};
@@ -18,7 +18,6 @@ const WishListInfo = styled.div`
 `;
 
 const TitleInfo = styled.div`
-  text-align: center;
   font-size: 30px;
   font-weight: bold;
   margin-bottom: ${margins.xs};
