@@ -7,7 +7,11 @@ const StyledFooter = styled.footer`
   position: absolute;
   bottom: 0;
   text-align: center;
-  font-size: ${fontSizes.sm}
+  font-size: ${fontSizes.sm};
+`;
+
+const FooterInfo = styled.div`
+  border: 1px solid black;
 `;
 
 const Icons = styled.div`
@@ -29,6 +33,14 @@ const Icon = styled.a`
 const Footer: React.FC = () => {
   return (
     <StyledFooter>
+    <FooterInfo>
+    <section>
+      <h1>Customer Service</h1>
+    </section>
+    <section>About Company</section>
+    <section>Payment Methods</section>
+
+    </FooterInfo>
       <Icons>
         <Icon href="/fb" target="_blank">
           <img src={require("../../assets/fb-logo.png")} alt="" />
