@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { createGlobalStyle } from "styled-components";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import Home from "./pages/Home/Home";
 import { colors, fontSizes } from "./theme/theme";
 import ShoppingCart from "./pages/ShoppingCart/ShoppingCart";
@@ -9,6 +8,7 @@ import Nav from "./components/Nav/Nav";
 import SideBar from "./components/Sidebar/SideBar";
 import Footer from "./components/Footer/Footer";
 import WishList from "./pages/WishList/WishList";
+import Auth from "./pages/Auth/Auth";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -20,10 +20,8 @@ const GlobalStyle = createGlobalStyle`
     color: ${colors.darkBlue};
   }
 `;
-
 const App: React.FC = () => {
   const [sideBarState, setSideBarState] = useState(false);
-
   const toggleSideBar = () => {
     setSideBarState(!sideBarState);
   };
@@ -43,8 +41,3 @@ const App: React.FC = () => {
         </Routes>
         <Footer />
       </BrowserRouter>
-      <div className="App"></div>
-    </>
-  );
-};
-export default App;
