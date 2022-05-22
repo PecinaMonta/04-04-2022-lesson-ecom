@@ -9,6 +9,7 @@ import SideBar from "./components/SideBar/SideBar";
 import Footer from "./components/Footer/Footer";
 import WishList from "./pages/WishList/WishList";
 import Auth from "./pages/Auth/Auth";
+import UserContext from "./UserContext";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -22,25 +23,29 @@ const GlobalStyle = createGlobalStyle`
 `;
 const App: React.FC = () => {
   const [sideBarState, setSideBarState] = useState(false);
+  const [value, setValue] = useState("default value");
+
   const toggleSideBar = () => {
     setSideBarState(!sideBarState);
   };
   return (
     <>
       <GlobalStyle />
-      <BrowserRouter>
-        <Nav toggleSideBar={toggleSideBar} />
-        {sideBarState && <SideBar toggleFn={toggleSideBar} />}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/cart" element={<ShoppingCart />} />
-          <Route path="/user" element={<div>user page</div>} />
-          <Route path="/wishlist" element={<WishList />} />
-          <Route path="/login" element={<Auth login />} />
-          <Route path="/signup" element={<Auth />} />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
+      <UserContext.Provider value={{ value, setValue }}>
+          <BrowserRouter>
+            <Nav toggleSideBar={toggleSideBar} />
+            {sideBarState && <SideBar toggleFn={toggleSideBar} />}
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/cart" element={<ShoppingCart />} />
+              <Route path="/user" element={<div>user page</div>} />
+              <Route path="/wishlist" element={<WishList />} />
+              <Route path="/login" element={<Auth login />} />
+              <Route path="/signup" element={<Auth />} />
+            </Routes>
+            <Footer />
+          </BrowserRouter>
+        </UserContext.Provider>
       <div className="App"></div>
     </>
   );
