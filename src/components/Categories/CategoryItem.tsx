@@ -48,7 +48,7 @@ const Item = styled(Link)<{ bg: string }>`
 const CategoryItem: React.FC<{ category: typeof dataVar }> = ({ category }) => {
   return (
     <Item
-      to={`category/${category.id}`}
+      to={`categories/${category.id}`}
       bg={`http://localhost:1337${category.attributes.image.data.attributes}`}
     >
       {/* <Icon bg={category.icon} /> */}
