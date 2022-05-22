@@ -1,6 +1,9 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { colors, margins, paddings } from "../../theme/theme";
-const Item = styled.div<{ bg: string }>`
+import { dataVar } from "../../pages/Home/Home";
+
+const Item = styled(Link)<{ bg: string }>`
   position: relative;
   margin: ${margins.xs};
   height: 8rem;
@@ -25,30 +28,31 @@ const Item = styled.div<{ bg: string }>`
   }
 `;
 
-const Icon = styled.div<{ bg: string }>`
-  width: 2rem;
-  height: 2rem;
-  padding: ${paddings.xs};
-  background: url(${(props) => props && props.bg}) center no-repeat;
-`;
-type categoryItemType = {
-  id: number;
-  icon: string;
-  title: string;
-  bgImage: string;
-};
+//const Icon = styled.div<{ bg: string }>`
+//  width: 2rem;
+//  height: 2rem;
+//  padding: ${paddings.xs};
+//  background: url(${(props) => props && props.bg}) center no-repeat;
+//`;
+//type categoryItemType = {
+//  id: number;
+//  icon: string;
+//  title: string;
+//  bgImage: string;
+//};
 // const Banner = styled.div<{ bg: string }>`
 //   width: 100%;
 //   height: 12rem;
 //   text-align: center;
 //   background: url(${(props) => props && props.bg}) center/cover no-repeat;
-const CategoryItem: React.FC<{ category: categoryItemType }> = ({
-  category,
-}) => {
+const CategoryItem: React.FC<{ category: typeof dataVar }> = ({ category }) => {
   return (
-    <Item bg={category.bgImage}>
-      <Icon bg={category.icon} />
-      <div>{category.title}</div>
+    <Item
+      to={`category/${category.id}`}
+      bg={`http://localhost:1337${category.attributes.image.data.attributes}`}
+    >
+      {/* <Icon bg={category.icon} /> */}
+      <div>{category.attributes.name}</div>
     </Item>
   );
 };
