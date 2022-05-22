@@ -151,7 +151,6 @@ type dataType = typeof dataVar;
 const Home: React.FC = () => {
 
 const [categoryData, setCategoryData] = useState<{ data: dataType[] }>();
-  const { value, setValue } = useContext(UserContext);
 
   useEffect(() => {
     fetch(`http://localhost:1337/api/categories?populate=*`)
@@ -164,8 +163,6 @@ const [categoryData, setCategoryData] = useState<{ data: dataType[] }>();
   return (
     <>
       <Slider />
-      <div>{value}</div>
-      <button onClick={() => setValue("Other User")}>change user</button>
       {categoryData ? (
         <Categories>
           {categoryData.data.map((category) => {
@@ -175,7 +172,6 @@ const [categoryData, setCategoryData] = useState<{ data: dataType[] }>();
       ) : (
         <div>loading ...</div>
       )}
-      <Footer />
     </>
   );
 };

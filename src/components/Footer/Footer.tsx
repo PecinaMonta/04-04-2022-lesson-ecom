@@ -4,7 +4,7 @@ import { fontSizes, margins, paddings } from "../../theme/theme";
 const StyledFooter = styled.footer`
   width: 100%;
   height: 18rem;
-  position: absolute;
+  position: relative;
   bottom: 0;
   text-align: center;
   font-size: ${fontSizes.sm};

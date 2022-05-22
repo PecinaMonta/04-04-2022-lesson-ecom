@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom'
 import Product from "../../components/Product/Product";
 import ProductList from "../../components/ProductList/ProductList";
 import { margins, paddings } from "../../theme/theme";
+import { useContext } from "react";
+import UserContext from "../../UserContext";
 
 const WishListWrapper = styled.div`
   border: 1px solid black;
@@ -29,6 +31,8 @@ const AdditionalInfo = styled.p`
 
 
 const WishList: React.FC = () => {
+  const { value } = useContext(UserContext);
+
   return (
     <>
     <WishListWrapper>
@@ -38,6 +42,7 @@ const WishList: React.FC = () => {
         <Link to="/">View shop <img src={require("../../assets/wishlist/arrow-right.svg")} alt=">" /></Link>
       </WishListInfo>
       <ProductList>
+      <div>{value}</div>
         <Product />
         <Product />
         <Product />
